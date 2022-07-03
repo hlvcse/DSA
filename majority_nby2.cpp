@@ -10,7 +10,7 @@ public:
         return nums[n/2];
         */
         //methood 3. map(element ,frequency)
-
+        /*
         unordered_map<int,int> mp;
         for(auto ele:nums)
         {
@@ -27,17 +27,25 @@ public:
            }   
          }
         return ans;
-
+        */
         //method optimal...moore vote algo
-        /*int maj,count=0;
+        int num=0,count=0;
         for(auto ele:nums)
         {
             if(count==0)
-                maj=ele;
-            if(ele==maj)count++;
+                num=ele;
+            if(ele==num)count++;
             else count--;
         }
-        return maj;
-        */
+        //find actual count of num
+        count=0;
+        for(auto ele:nums)
+        {
+            if(ele==num)
+                count++;
+        }
+        if(count>nums.size()/2) return num;
+        else return -1;
+        
     }
 };
